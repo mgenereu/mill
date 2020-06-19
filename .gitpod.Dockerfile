@@ -1,7 +1,4 @@
 FROM gitpod/workspace-full
-
-# Install custom tools, runtimes, etc.
-# For example "bastet", a command-line tetris clone:
-# RUN brew install bastet
-#
-# More information: https://www.gitpod.io/docs/config-docker/
+USER gitpod
+RUN brew install scala coursier/formulas/coursier ammonite-repl
+RUN bash -cl "set -eux version=0.8.0 coursier fetch org.scalameta:mtags_2.13.2:0.9.0"
